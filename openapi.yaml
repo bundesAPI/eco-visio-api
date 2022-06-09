@@ -5,30 +5,213 @@ info:
   title: "Amtsname: API Name"
 
 servers:
-  - url: "https://warnung.bund.de/api31"
+  - url: "https://www.eco-visio.net/api/aladdin/1.0.0"
+    # variables:
+    #   idOrganisme:
+    #     enum:
+    #       - "4586"
+    #       - "891"
+    #     default: "4586"
+    #     description: Organisation ID
+      
 
 paths:
-  /dashboard/{AGS}.json:
+  /pbl/publicwebpageplus/{idOrganisme}:
     get:
-      summary: Name des Endpoints
+      summary: Alle Fahrradzähler
       responses:
         '200':
             description: OK
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Result'
+                  $ref: '#/components/schemas/AllCounter'
       parameters:
-        - in: path
+        - $ref: '#/components/parameters/idOrganismePath'
+        - in: query
+          required: false
+          name: withNull
+          schema:
+            type: boolean
+          description: Unbekannt TODO
+          example: "true"
+
+
+  /pbl/publicwebpageplus/data/1:
+  #/pbl/publicwebpageplus/data/{idPdc}:
+  #&fin=26/05/2022
+  #&debut=01/01/2022
+  #&interval=4
+  #&flowIds=101125116;102125116;353247560;353247561:
+    get:
+      summary: Werte für einen spezifischen Fahrradzähler
+      responses:
+        '200':
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                example: ["01/01/2022", "5020"]
+                minItems: 2
+                maxItems: 2
+           # TODO
+      parameters:
+        - $ref: '#/components/parameters/idOrganismeQuery'
+        # - in: path
+        #   name: idPdc
+        #   required: true
+        #   schema:
+        #     type: integer
+        #   description: ID des Fahrradzählers
+        #   example: 100125116
+        - in: query
+          name: idPdc
           required: true
-          name: AGS
+          schema:
+            type: integer
+          description: ID des Fahrradzählers
+          example: 100125116
+        - in: query
+          name: fin
+          required: true
+          schema:
+            $ref: '#/components/schemas/Date'
+          description: Bis Datum
+          example: "26/05/2022"
+        - in: query
+          name: debut
+          required: true
+          schema:
+            $ref: '#/components/schemas/Date'
+          description: Von Datum
+          example: "26/04/2022"
+        - in: query
+          name: interval
+          required: true
+          schema:
+            type: integer
+          description: Unbekannt TODO
+          example: 4
+        - in: query
+          name: flowIds
+          required: true # TODO
           schema:
             type: string
-          description: Amtlicher Gebietsschlüssel - kann z.B. von [hier](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json) bezogen werden. Die Letzten 7 Stellen müssen dabei mit "0000000" ersetzt werden, weil die Daten nur auf [Kreisebene](https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel) bereitgestellt werden. 
-          example: "example-parameter"
+          example: 101125116;102125116;353247560;353247561
+          description: '"pratique" mit ";" getrennt'
 
-          
-components: 
-    schemas:
-      Result:
-        type: string
+
+
+components:
+  schemas:
+    AllCounter:
+      type: array
+      items: 
+        type: object
+        properties:
+          id_pdc_img:
+            type: integer
+            example: 100023462
+          idPdc:
+            type: integer
+            example: 100125116
+            description: ID des Zählers
+          lat:
+            type: number
+            format: float
+            example: 49.448765
+          lon:
+            type: number
+            format: float
+            example: 11.082456
+          nom:
+            type: string
+            example: "Nuremberg (DE)"
+          photo:
+            type: array
+            items:
+              type: object
+              properties:
+                lien:
+                  type: string
+                  example: "https://filer.eco-counter-tools.com/file/36/abbffb1981cff24c155d40cda72890efbd4b5dfeedf05131025d2ed36128a736/14404315699570.jpg"
+                  description: Foto des Zählers
+          pratique:
+            type: array
+            items:
+              type: object
+              description: Unbekannt TODO
+              properties:
+                pratique:
+                  type: integer
+                  example: 2
+                  description: Unbekannt TODO
+                id:
+                  type: integer
+                  example: 101125116
+                  description: Unbekannt TODO
+          mainPratique:
+            type: integer
+            example: 2
+            description: Unbekannt TODO
+          debut:
+            $ref: '#/components/schemas/Date'
+          debutPeriode:
+            $ref: '#/components/schemas/Date'
+          current_year_default:
+            type: integer
+            example: 1
+            description: Unbekannt TODO
+          today:
+            $ref: '#/components/schemas/Date'
+          total:
+            type: integer
+            example: 270438
+            description: Anzahl Fahrräder die jemals am Zähler vorbeigefahren sind
+          lastDay:
+            type: integer
+            example: 3455
+            description: Anzahl Fahrräder die Gestern (in Relation zu "today") am Zähler vorbeigefahren sind
+          moyD:
+            type: integer
+            example: 1865
+            description: Täglicher Durchschnitt der Anzahl Fahrräder die am Zähler vorbeigefahren sind
+    Date:
+      type: string 
+      pattern: '^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(\d{4})$'
+      description: Datum im Format TAG/MONAT/JAHR
+      example: "26/05/2022"
+  parameters:
+    idOrganismePath:
+      name: idOrganisme
+      in: path
+      required: true
+      schema:
+        type: integer
+        enum:
+          - "4586"
+          - "891"
+        default: "4586"
+        description: Organisation ID
+      description: Unbekannt TODO
+      example: "4586"
+    idOrganismeQuery:
+      name: idOrganisme
+      in: query
+      required: true
+      schema:
+        type: integer
+        enum:
+          - "4586"
+          - "891"
+        default: "4586"
+        description: Organisation ID
+      description: Unbekannt TODO
+      example: "4586"
+    
+
+                  
+            
