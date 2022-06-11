@@ -1,8 +1,8 @@
 openapi: "3.0.0"
 info:
-  description: "API Description"
+  description: "API zum Eco-Visio-Dashboard von Eco-Counter "
   version: "1.0.0"
-  title: "Amtsname: API Name"
+  title: "Eco-Counter: eco-visio-api"
 
 servers:
   - url: "https://www.eco-visio.net/api/aladdin/1.0.0"
