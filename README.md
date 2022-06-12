@@ -1,6 +1,6 @@
 # "Eco-Visio-API"
 
-API zum [Eco-Visio-Dashboard](https://data.eco-counter.com/ParcPublic/?id=4586) von Eco-Counter. Eco-Counter betreibt Fahrrad- und/oder Fußgängerzähler in unterschiedlichen Ländern, die Angaben die in zahlreichen deutschen Städten z.B. "Radfahrende heute" oder "Radfahrende dieses Jahr" ausweisen. Auf dem Dashboard ("Bike Count Display Interactive Map") können die Zahlen unterschiedlicher Zähler eingesehen und verglichen werden.
+API zum [Eco-Visio-Dashboard](https://data.eco-counter.com/ParcPublic/?id=4586) von Eco-Counter. Eco-Counter ist ein Technikunternehmen mit Hauptsitz in Lannion, in der Bretagne. Zum Unternehmen zählen Filialen in Montreal (Kanada) und in Köln. Das Untenehmen betreibt Fahrrad- und/oder Fußgängerzähler in unterschiedlichen Ländern, die Angaben die in zahlreichen deutschen Städten z.B. "Radfahrende heute" oder "Radfahrende dieses Jahr" ausweisen. Teilweise scheinen die Zähler auch unterirdisch verlegt worden zu sein (z.B. zahlreiche Fahrradzählstellen in Hessen, vgl. https://data.eco-counter.com/ParcPublic/?id=8080). Eco-Visio ist ein Analysetool zur Auswertung der Daten. Auf dem Dashboard ("Bike Count Display Interactive Map") können die Zahlen unterschiedlicher Zähler eingesehen und verglichen werden.
 
 
 <img src="https://filer.eco-counter-tools.com/file/36/abbffb1981cff24c155d40cda72890efbd4b5dfeedf05131025d2ed36128a736/14404315699570.jpg" alt="Fahrradzzähler Nürnberg" style="width:200px;"/>
@@ -17,7 +17,7 @@ Alle Fahrradzähler eines Trägers *idOrganisme* (z.B. 4586, 20 oder 8080).
 
 **Parameter:** *withNull*
 
-Noch undokumentiert.
+Parameter ohne bekannten/dokumentierten Effekt.
 
 
 

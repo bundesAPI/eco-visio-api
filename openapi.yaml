@@ -1,6 +1,6 @@
 openapi: "3.0.0"
 info:
-  description: "API zum [Eco-Visio-Dashboard](https://data.eco-counter.com/ParcPublic/?id=4586) von Eco-Counter. Eco-Counter betreibt Fahrrad- und/oder Fußgängerzähler in unterschiedlichen Ländern, die Angaben die in zahlreichen deutschen Städten z.B. "Radfahrende heute" oder "Radfahrende dieses Jahr" ausweisen. Auf dem Dashboard ("Bike Count Display Interactive Map") können die Zahlen unterschiedlicher Zähler eingesehen und verglichen werden."
+  description: "API zum [Eco-Visio-Dashboard](https://data.eco-counter.com/ParcPublic/?id=4586) von Eco-Counter. Eco-Counter ist ein Technikunternehmen mit Hauptsitz in Lannion, in der Bretagne. Zum Unternehmen zählen Filialen in Montreal (Kanada) und in Köln. Das Unternehmen betreibt Fahrrad- und/oder Fußgängerzähler in unterschiedlichen Ländern, die Angaben die in zahlreichen deutschen Städten z.B. "Radfahrende heute" oder "Radfahrende dieses Jahr" ausweisen. Teilweise scheinen die Zähler auch unterirdisch verlegt worden zu sein (z.B. zahlreiche Fahrradzählstellen in Hessen, vgl. https://data.eco-counter.com/ParcPublic/?id=8080). Eco-Visio ist ein Analysetool zur Auswertung der Daten. Auf dem Dashboard ("Bike Count Display Interactive Map") können die Zahlen unterschiedlicher Zähler eingesehen und verglichen werden."
   version: "1.0.0"
   title: "Eco-Counter: Eco-Visio-API"
 
@@ -25,7 +25,7 @@ paths:
           name: withNull
           schema:
             type: boolean
-          description: Unbekannt TODO
+          description: Parameter ohne bekannten/dokumentierten Effekt.
           example: "true"
 
 
@@ -160,7 +160,7 @@ components:
           current_year_default:
             type: integer
             example: 1
-            description: Unbekannt TODO
+            description: Berichte alle Daten ab Jahresbeginn, wenn 1.
           today:
             $ref: '#/components/schemas/Date'
           total:
