@@ -1,24 +1,16 @@
 openapi: "3.0.0"
 info:
-  description: "API zum Eco-Visio-Dashboard von Eco-Counter "
+  description: "API zum [Eco-Visio-Dashboard](https://data.eco-counter.com/ParcPublic/?id=4586) von Eco-Counter. Eco-Counter betreibt Fahrrad- und/oder Fußgängerzähler in unterschiedlichen Ländern, die Angaben die in zahlreichen deutschen Städten z.B. "Radfahrende heute" oder "Radfahrende dieses Jahr" ausweisen. Auf dem Dashboard ("Bike Count Display Interactive Map") können die Zahlen unterschiedlicher Zähler eingesehen und verglichen werden."
   version: "1.0.0"
-  title: "Eco-Counter: eco-visio-api"
+  title: "Eco-Counter: Eco-Visio-API"
 
 servers:
   - url: "https://www.eco-visio.net/api/aladdin/1.0.0"
-    # variables:
-    #   idOrganisme:
-    #     enum:
-    #       - "4586"
-    #       - "891"
-    #     default: "4586"
-    #     description: Organisation ID
-      
-
+     
 paths:
   /pbl/publicwebpageplus/{idOrganisme}:
     get:
-      summary: Alle Fahrradzähler
+      summary: Alle Fahrradzähler eines Trägers idOrganisme (z.B. 4586, 20 oder 8080).
       responses:
         '200':
             description: OK
@@ -39,12 +31,9 @@ paths:
 
   /pbl/publicwebpageplus/data/1:
   #/pbl/publicwebpageplus/data/{idPdc}:
-  #&fin=26/05/2022
-  #&debut=01/01/2022
-  #&interval=4
-  #&flowIds=101125116;102125116;353247560;353247561:
+
     get:
-      summary: Werte für einen spezifischen Fahrradzähler
+      summary: Werte für einen spezifischen Fahrradzählers idPdc (z.B. 100125116) der als GET-Parameter zu spezifizieren ist (optional auch ergänzend als Pfad-Parameter statt der 1).
       responses:
         '200':
           description: OK
@@ -75,25 +64,18 @@ paths:
           description: ID des Fahrradzählers
           example: 100125116
         - in: query
-          name: fin
-          required: true
-          schema:
-            $ref: '#/components/schemas/Date'
-          description: Bis Datum
-          example: "26/05/2022"
-        - in: query
-          name: debut
-          required: true
-          schema:
-            $ref: '#/components/schemas/Date'
-          description: Von Datum
-          example: "26/04/2022"
-        - in: query
           name: interval
           required: true
           schema:
             type: integer
-          description: Unbekannt TODO
+            enum:
+              - 1
+              - 2
+              - 3
+              - 4
+              - 5
+              - 6
+          description: Aggregationsintervall (6=Monate, 5=Wochen, 4=Tage, ...).
           example: 4
         - in: query
           name: flowIds
@@ -102,6 +84,20 @@ paths:
             type: string
           example: 101125116;102125116;353247560;353247561
           description: '"pratique" mit ";" getrennt'
+        - in: query
+          name: fin
+          required: false
+          schema:
+            $ref: '#/components/schemas/Date'
+          description: Spätestes interessierendes Datum (z.B. "26/05/2022").
+          example: "26/05/2022"
+        - in: query
+          name: debut
+          required: false
+          schema:
+            $ref: '#/components/schemas/Date'
+          description: Frühestes interessierendes Datum (z.B. "01/01/2021").
+          example: "26/04/2021"
 
 
 
