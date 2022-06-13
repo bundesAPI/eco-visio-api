@@ -1,5 +1,3 @@
-setwd("/home/af/Downloads/eco-visio-api-main/csv")
-
 l=list()
 n=1
 for(i in 1:9999) { 
