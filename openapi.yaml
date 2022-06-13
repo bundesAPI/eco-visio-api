@@ -10,7 +10,7 @@ servers:
 paths:
   /pbl/publicwebpageplus/{idOrganisme}:
     get:
-      summary: Alle Fahrradzähler eines Trägers idOrganisme (z.B. 4586, 20 oder 8080).
+      summary: Alle Fahrradzähler eines Trägers idOrganisme (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters *idOrganisme* und deren Bedeutung gibt die Tabelle unter https://github.com/AndreasFischer1985/eco-visio-api/blob/main/eco-visio-api_2022-06-13.csv (Stand 13.06.2022).
       responses:
         '200':
             description: OK
