@@ -1,4 +1,4 @@
-# Eco-Visio-API
+# Eco-Visio API
 
 API zum [Eco-Visio-Dashboard](https://data.eco-counter.com/ParcPublic/?id=4586) von Eco-Counter. 
 
@@ -14,11 +14,11 @@ Eco-Visio ist ein Analysetool zur Auswertung der Daten. Auf dem Dashboard könne
 
 # Filter
 
-## Fahrradzähler 
+## Zähler 
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/{idOrganisme}
 
-Alle Fahrradzähler eines Trägers *idOrganisme* (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters *idOrganisme* und deren Bedeutung gibt die Tabelle [hier](https://github.com/AndreasFischer1985/eco-visio-api/blob/main/eco-visio-api_2022-06-13.csv) (Stand 13.06.2022).
+Alle Zähler eines Trägers mit ID *idOrganisme* (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters *idOrganisme* und deren Bedeutung gibt die Tabelle [hier](https://github.com/AndreasFischer1985/eco-visio-api/blob/main/eco-visio-api_2022-06-13.csv) (Stand 13.06.2022).
 
 
 Einige *idOrganisme* sind deutschen Bundesländern und Städten zugeordnet:
@@ -57,21 +57,21 @@ Frühestes interessierendes Datum (z.B. "01/01/2021").
 
 
 
-## Fahrradzählerdetails
+## Zählerdaten
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data/1
 
-Werte für einen spezifischen Fahrradzählers *idPdc* (z.B. 100125116) der als GET-Parameter zu spezifizieren ist (optional auch ergänzend als Pfad-Parameter statt der 1).
+Werte für einen spezifischen Zähler mit ID *idPdc* (z.B. 100125116) der als GET-Parameter zu spezifizieren ist (optional auch ergänzend als Pfad-Parameter statt der 1).
 
 
 **Parameter:** *idOrganisme* (mandatory)
 
-ID des Trägers *idOrganisme* (z.B. 4586, 20 oder 8080)
+ID des Trägers (z.B. 4586, 20 oder 8080)
 
 
 **Parameter:** *idPdc* (mandatory)
 
-ID des Fahrradzählers (z.B. 100125116)
+ID des Zählers (z.B. 100125116)
 
 
 **Parameter:** *interval* (mandatory)
@@ -88,7 +88,7 @@ Aggregationsintervall (6=Monate, 5=Wochen, 4=Tage, ...).
 
 **Parameter:** *flowIds* (mandatory)
 
-'"pratique" mit ";" getrennt' (z.B. 101125116;102125116;353247560;353247561)
+'"pratique" mit Semikolon getrennt' (z.B. 101125116;102125116;353247560;353247561)
 
 
 **Parameter:** *fin* (optional)
@@ -104,6 +104,6 @@ Frühestes interessierendes Datum (z.B. "01/01/2021").
 ## Beispiel
 
 ```bash
-counter=$(curl -m 60 https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/4586)
-details=$(curl -m 60 "https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data/100125116?idOrganisme=4586&idPdc=100125116&interval=4&flowIds=101125116%3B102125116%3B353247560%3B353247561")
+counters=$(curl -m 60 https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/4586)
+data=$(curl -m 60 "https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data/100125116?idOrganisme=4586&idPdc=100125116&interval=4&flowIds=101125116%3B102125116%3B353247560%3B353247561")
 ```
