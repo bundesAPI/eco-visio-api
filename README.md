@@ -53,7 +53,7 @@ Frühestes interessierendes Datum (z.B. "01/01/2021").
 
 **Parameter:** *pratique* (optional)
 
-'"pratique" i.S.v. interessierende Zählerart (z.B. 1=Fußgänger,2=Fahrräder, oder 12=Sternchen)
+"pratique" i.S.v. Beschränkung auf interessierende Zählerart (z.B. 1=Fußgänger, 2=Fahrräder, 4=Autos, oder 12=Sternchen).
 
 
 
@@ -88,7 +88,7 @@ Aggregationsintervall (6=Monate, 5=Wochen, 4=Tage, ...).
 
 **Parameter:** *flowIds* (mandatory)
 
-'"pratique" mit Semikolon getrennt' (z.B. 101125116;102125116;353247560;353247561)
+pratique-ID, ggf. mehrere mit Semikolon getrennt' (z.B. 101125116;102125116;353247560;353247561).
 
 
 **Parameter:** *fin* (optional)
