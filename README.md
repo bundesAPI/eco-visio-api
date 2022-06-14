@@ -25,7 +25,7 @@ Einige *idOrganisme* sind deutschen Bundesländern und Städten zugeordnet:
 4728=Berlin, 677=Köln, 4701=Bonn, 6011=Ludwigsburg, 4206=Heidelberg, 
 607=Stuttgart, 4702=Rhein-Sieg-Kreis, 857=Düsseldorf, 888=Rostock, 
 5417=Augsburg, 5972=Leipzig, 7119=Bielefeld, 4197=Mannheim, 7581=Reutlingen, 
-7119=Hürth, 18=Würzburg, 7241=Norderstedt, 751=Freiburg, 6109=Oberbergischer Kreis und Rheinisch-Bergischer Kreis,
+7224=Hürth, 4729=Würzburg, 7241=Norderstedt, 751=Freiburg, 6109=Oberbergischer Kreis und Rheinisch-Bergischer Kreis,
 4699=Rheinisch-Bergischer Kreis und Oberbergischer Kreis, 
 6076=Oberhausen, 6116=Schwerin, 7642=Leverkusen, 
 6135=Goslar, 6997=Greifswald, 6471=Ludwigshafen, 7058=Siegen, 
@@ -37,6 +37,21 @@ Außerdem sind Zähler in deutschen Städten ausgewiesen unter *idOrganisme* 458
 **Parameter:** *withNull*
 
 Parameter ohne bekannten/dokumentierten Effekt.
+
+
+**Parameter:** *end* (optional)
+
+Spätestes interessierendes Datum (z.B. "26/05/2022").
+
+
+**Parameter:** *begin* (optional)
+
+Frühestes interessierendes Datum (z.B. "01/01/2021").
+
+
+**Parameter:** *pratique* (optional)
+
+'"pratique" i.S.v. interessierende Zählerart (z.B. 1=Fußgänger,2=Fahrräder, oder 12=Sternchen)
 
 
 
