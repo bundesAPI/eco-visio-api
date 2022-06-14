@@ -1,6 +1,10 @@
 # Eco-Visio-API
 
-API zum [Eco-Visio-Dashboard](https://data.eco-counter.com/ParcPublic/?id=4586) von Eco-Counter. Eco-Counter ist ein Technikunternehmen mit Hauptsitz in Lannion, in der Bretagne. Zum Unternehmen zählen Filialen in Montreal (Kanada) und in Köln. Das Untenehmen betreibt Fahrrad- und/oder Fußgängerzähler in unterschiedlichen Ländern, die Angaben die in zahlreichen deutschen Städten z.B. "Radfahrende heute" oder "Radfahrende dieses Jahr" ausweisen. Teilweise scheinen die Zähler auch unterirdisch verlegt worden zu sein (z.B. zahlreiche Fahrradzählstellen in Hessen, vgl. https://data.eco-counter.com/ParcPublic/?id=8080). Eco-Visio ist ein Analysetool zur Auswertung der Daten. Auf dem Dashboard können die Zahlen unterschiedlicher Zähler eingesehen und verglichen werden. 
+API zum [Eco-Visio-Dashboard](https://data.eco-counter.com/ParcPublic/?id=4586) von Eco-Counter. Eco-Counter ist ein Technikunternehmen mit Hauptsitz in Lannion, in der Bretagne. Zum Unternehmen zählen Filialen in Montreal (Kanada) und in Köln. Das Untenehmen betreibt Fahrrad- und/oder Fußgängerzähler in unterschiedlichen Ländern, die Angaben die in zahlreichen deutschen Städten z.B. "Radfahrende heute" oder "Radfahrende dieses Jahr" ausweisen. Teilweise scheinen die Zähler auch unterirdisch verlegt worden zu sein (z.B. zahlreiche Fahrradzählstellen in Hessen, vgl. https://data.eco-counter.com/ParcPublic/?id=8080). 
+
+Generell findet man in Deutschland überwiegend Fahrradzähler. In Rostock gibt es daneben auch Fußgängerzähler (https://data.eco-counter.com/ParcPublic/?id=888), ebenso in Schwerin (https://data.eco-counter.com/ParcPublic/?id=6116), in Greifswald (https://data.eco-counter.com/ParcPublic/?id=6997) oder in Böblingen (https://data.eco-counter.com/ParcPublic/?id=6811). In Ludwigsburg gibt es sogar separat ausgewiesene Autozähler von Eco-Counter (https://data.eco-counter.com/ParcPublic/?id=6011).
+
+Eco-Visio ist ein Analysetool zur Auswertung der Daten. Auf dem Dashboard können die Zahlen unterschiedlicher Zähler eingesehen und verglichen werden. 
 
 
 <img src="https://filer.eco-counter-tools.com/file/36/abbffb1981cff24c155d40cda72890efbd4b5dfeedf05131025d2ed36128a736/14404315699570.jpg" alt="Fahrradzzähler Nürnberg" style="width:200px;"/>
