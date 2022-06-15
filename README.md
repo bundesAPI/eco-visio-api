@@ -12,8 +12,6 @@ Eco-Visio ist ein Analysetool zur Auswertung der Daten. Auf dem Dashboard könne
 <img src="https://filer.eco-counter-tools.com/file/36/abbffb1981cff24c155d40cda72890efbd4b5dfeedf05131025d2ed36128a736/14404315699570.jpg" alt="Fahrradzzähler Nürnberg" style="width:200px;"/>
 
 
-# Filter
-
 ## Zähler 
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/{idOrganisme}
@@ -101,7 +99,7 @@ Spätestes interessierendes Datum (z.B. "26/05/2022").
 Frühestes interessierendes Datum (z.B. "01/01/2021").
 
 
-## Beispiel
+# Beispiel
 
 ```bash
 counters=$(curl -m 60 https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/4586)
