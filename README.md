@@ -31,8 +31,10 @@ Einige *idOrganisme* sind deutschen Bundesländern und Städten zugeordnet:
 6135=Goslar, 6997=Greifswald, 6471=Ludwigshafen, 7058=Siegen, 
 4626=Essen, 6603=Bochum, 6481=Aschaffenburg, 6811=Böblingen, 6150=Dortmund.
 
-Außerdem sind Zähler in deutschen Städten ausgewiesen unter *idOrganisme* 4586 (="Bike Count Display Interactive Map") und 5024 (="National Database Demo")
+Außerdem sind Zähler in deutschen Städten ausgewiesen unter *idOrganisme* 4586 (="Bike Count Display Interactive Map") und 5024 (="National Database Demo").
 
+
+### Parameter
 
 **Parameter:** *withNull*
 
@@ -54,6 +56,12 @@ Frühestes interessierendes Datum (z.B. "01/01/2021").
 "pratique" i.S.v. Beschränkung auf interessierende Zählerart (z.B. 1=Fußgänger, 2=Fahrräder, 4=Autos, oder 12=Sternchen).
 
 
+### Beispiel
+
+```bash
+counters=$(curl -m 60 https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/4586)
+```
+
 
 ## Zählerdaten
 
@@ -61,6 +69,8 @@ Frühestes interessierendes Datum (z.B. "01/01/2021").
 
 Werte für einen spezifischen Zähler mit ID *idPdc* (z.B. 100125116) der als GET-Parameter zu spezifizieren ist (optional auch ergänzend als Pfad-Parameter statt der 1).
 
+
+### Parameter
 
 **Parameter:** *idOrganisme* (mandatory)
 
@@ -99,9 +109,8 @@ Spätestes interessierendes Datum (z.B. "26/05/2022").
 Frühestes interessierendes Datum (z.B. "01/01/2021").
 
 
-# Beispiel
+### Beispiel
 
 ```bash
-counters=$(curl -m 60 https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/4586)
 data=$(curl -m 60 "https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data/100125116?idOrganisme=4586&idPdc=100125116&interval=4&flowIds=101125116%3B102125116%3B353247560%3B353247561")
 ```

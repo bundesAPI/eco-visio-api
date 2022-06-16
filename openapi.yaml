@@ -47,7 +47,7 @@ paths:
           schema:
             type: integer
           description: pratique i.S.v. interessierende Zählerart (z.B. 1=Fußgänger,2=Fahrräder, oder 12=Sternchen)
-          example: "01/01/2021"
+          example: 1
                     
   /pbl/publicwebpageplus/data/1:
   #/pbl/publicwebpageplus/data/{idPdc}:
@@ -102,8 +102,8 @@ paths:
           required: true # TODO
           schema:
             type: string
-          example: 101125116;102125116;353247560;353247561
-          description: '"pratique" mit ";" getrennt'
+          example: "101125116;102125116;353247560;353247561"
+          description: pratique-ID mit Semikolon getrennt
         - in: query
           name: fin
           required: false
@@ -208,12 +208,44 @@ components:
       schema:
         type: integer
         enum:
-          - "4586"
-          - "891"
-        default: "4586"
-        description: Organisation ID
-      description: Unbekannt TODO
-      example: "4586"
+          - 4586
+          - 5024 
+          - 8080
+          - 6365
+          - 4728
+          - 677
+          - 4701
+          - 6011
+          - 4206
+          - 607
+          - 4702
+          - 857
+          - 888
+          - 5417
+          - 5972
+          - 7119
+          - 4197
+          - 7581
+          - 7224
+          - 4729
+          - 7241
+          - 751
+          - 6109
+          - 4699
+          - 6076
+          - 6116
+          - 7642
+          - 6135
+          - 6997
+          - 6471
+          - 7058
+          - 4626
+          - 6603
+          - 6481
+          - 6811
+          - 6150
+        default: 4586
+        description: Träger ID
     idOrganismeQuery:
       name: idOrganisme
       in: query
@@ -221,13 +253,41 @@ components:
       schema:
         type: integer
         enum:
-          - "4586"
-          - "891"
-        default: "4586"
-        description: Organisation ID
-      description: Unbekannt TODO
-      example: "4586"
-    
-
-                  
-            
+          - 4586
+          - 5024 
+          - 8080
+          - 6365
+          - 4728
+          - 677
+          - 4701
+          - 6011
+          - 4206
+          - 607
+          - 4702
+          - 857
+          - 888
+          - 5417
+          - 5972
+          - 7119
+          - 4197
+          - 7581
+          - 7224
+          - 4729
+          - 7241
+          - 751
+          - 6109
+          - 4699
+          - 6076
+          - 6116
+          - 7642
+          - 6135
+          - 6997
+          - 6471
+          - 7058
+          - 4626
+          - 6603
+          - 6481
+          - 6811
+          - 6150
+        default: 4586
+        description: Träger ID
