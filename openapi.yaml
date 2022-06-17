@@ -123,9 +123,7 @@ paths:
                 type: array
                 items:
                   type: string
-                example: [01/01/2022, 5020]
-                minItems: 2
-                maxItems: 2          
+                example: ["01/01/2022", "5020"]
            
       parameters:        
         
