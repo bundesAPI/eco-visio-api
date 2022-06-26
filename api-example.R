@@ -26,4 +26,4 @@ for(i in 1:9999) {
 }
 save.image(paste0("eco-visio-api_",Sys.Date(),".RData"))
 m=do.call("rbind",l)
-write.csv2(m,paste0("eco-visio-api_",Sys.Date(),".csv"),fileEncoding="UTF-8")
+write.csv(m,paste0("eco-visio-api_",Sys.Date(),".csv"),fileEncoding="UTF-8")

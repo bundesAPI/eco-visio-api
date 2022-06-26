@@ -16,7 +16,7 @@ Eco-Visio ist ein Analysetool zur Auswertung der Daten. Auf dem Dashboard könne
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/{idOrganisme}
 
-Alle Zähler eines Trägers mit ID *idOrganisme* (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters *idOrganisme* und deren Bedeutung gibt die Tabelle [hier](https://github.com/AndreasFischer1985/eco-visio-api/blob/main/eco-visio-api_2022-06-13.csv) (Stand 13.06.2022).
+Alle Zähler eines Trägers mit ID *idOrganisme* (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters *idOrganisme* und deren Bedeutung gibt die Tabelle [hier](https://github.com/AndreasFischer1985/eco-visio-api/blob/main/eco-visio-api_2022-06-26.csv) (Stand 26.06.2022).
 
 
 Einige *idOrganisme* sind deutschen Bundesländern und Städten zugeordnet:
