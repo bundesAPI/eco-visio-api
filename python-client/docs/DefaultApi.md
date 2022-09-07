@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Zähler
 
-Alle Zähler eines Trägers mit ID idOrganisme (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters idOrganisme und deren Bedeutung gibt die Tabelle unter https://github.com/bundesAPI/eco-visio-api/blob/main/eco-visio-api_2022-06-26.csv (Stand 26.06.2022). Einige idOrganisme sind deutschen Bundesländern und Städten zugeordnet: 8080=Hessen, 6365=Mecklenburg-Vorpommern, 4728=Berlin, 677=Köln, 4701=Bonn, 6011=Ludwigsburg, 4206=Heidelberg, 607=Stuttgart, 4702=Rhein-Sieg-Kreis, 857=Düsseldorf, 888=Rostock, 5417=Augsburg, 5972=Leipzig, 7119=Bielefeld, 4197=Mannheim, 7581=Reutlingen, 7224=Hürth, 4729=Würzburg, 7241=Norderstedt, 751=Freiburg, 6109=Oberbergischer Kreis und Rheinisch-Bergischer Kreis, 4699=Rheinisch-Bergischer Kreis und Oberbergischer Kreis, 6076=Oberhausen, 6116=Schwerin, 7642=Leverkusen, 6135=Goslar, 6997=Greifswald, 6471=Ludwigshafen, 7058=Siegen, 4626=Essen, 6603=Bochum, 6481=Aschaffenburg, 6811=Böblingen, 6150=Dortmund.   Außerdem sind Zähler in deutschen Städten ausgewiesen unter idOrganisme 4586 (='Bike Count Display Interactive Map') und 5024 (='National Database Demo'). 
+Alle Zähler eines Trägers mit ID idOrganisme (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters idOrganisme und deren Bedeutung gibt die Tabelle [hier](https://github.com/bundesAPI/eco-visio-api/blob/main/eco-visio-api.csv) (Stand 07.09.2022). Einige idOrganisme sind deutschen Bundesländern und Städten zugeordnet: 8080=Hessen, 6365=Mecklenburg-Vorpommern, 4728=Berlin, 677=Köln, 4701=Bonn, 6011=Ludwigsburg, 4206=Heidelberg, 607=Stuttgart, 4702=Rhein-Sieg-Kreis, 857=Düsseldorf, 888=Rostock, 5417=Augsburg, 5972=Leipzig, 7119=Bielefeld, 4197=Mannheim, 7581=Reutlingen, 7224=Hürth, 4729=Würzburg, 7241=Norderstedt, 751=Freiburg, 6109=Oberbergischer Kreis und Rheinisch-Bergischer Kreis, 4699=Rheinisch-Bergischer Kreis und Oberbergischer Kreis, 6076=Oberhausen, 6116=Schwerin, 7642=Leverkusen, 6135=Goslar, 6997=Greifswald, 6471=Ludwigshafen, 7058=Siegen, 4626=Essen, 6603=Bochum, 6481=Aschaffenburg, 6811=Böblingen, 6150=Dortmund.   Außerdem sind Zähler in deutschen Städten ausgewiesen unter idOrganisme 4586 (='Bike Count Display Interactive Map') und 5024 (='National Database Demo'). 
 
 ### Example
 
@@ -120,8 +120,8 @@ with EcoVisio.ApiClient() as api_client:
     id_pdc = 100125116 # int | ID des Fahrradzählers
     interval = 4 # int | Aggregationsintervall (6=Monate, 5=Wochen, 4=Tage, ...).
     flow_ids = "101125116;102125116;353247560;353247561" # str | pratique-ID mit Semikolon getrennt
-    fin = Date("26/05/2022") # str | Spätestes interessierendes Datum (z.B. '26/05/2022'). (optional)
-    debut = Date("26/04/2021") # str | Frühestes interessierendes Datum (z.B. '01/01/2021'). (optional)
+    fin = Date("26/05/2022") # Date | Spätestes interessierendes Datum (z.B. '26/05/2022'). (optional)
+    debut = Date("26/04/2021") # Date | Frühestes interessierendes Datum (z.B. '01/01/2021'). (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -150,8 +150,8 @@ Name | Type | Description  | Notes
  **interval** | **int**| Aggregationsintervall (6&#x3D;Monate, 5&#x3D;Wochen, 4&#x3D;Tage, ...). |
  **flow_ids** | **str**| pratique-ID mit Semikolon getrennt |
  **id_organisme** | **int**| Träger ID | defaults to 4586
- **fin** | **str**| Spätestes interessierendes Datum (z.B. &#39;26/05/2022&#39;). | [optional]
- **debut** | **str**| Frühestes interessierendes Datum (z.B. &#39;01/01/2021&#39;). | [optional]
+ **fin** | **Date**| Spätestes interessierendes Datum (z.B. &#39;26/05/2022&#39;). | [optional]
+ **debut** | **Date**| Frühestes interessierendes Datum (z.B. &#39;01/01/2021&#39;). | [optional]
 
 ### Return type
 
