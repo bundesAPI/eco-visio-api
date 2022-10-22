@@ -334,7 +334,7 @@ class DefaultApi(object):
 
         Args:
             id_pdc (int): ID des Fahrradzählers
-            interval (int): Aggregationsintervall (6=Monate, 5=Wochen, 4=Tage, ...).
+            interval (int): Aggregationsintervall (6=Monate, 5=Wochen, 4=Tage, 3=Stunden, 2=Viertelstunden, 1=?).
             flow_ids (str): pratique-ID mit Semikolon getrennt
             id_organisme (int): Träger ID. defaults to 4586, must be one of [4586]
 

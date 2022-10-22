@@ -118,7 +118,7 @@ with EcoVisio.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
     id_pdc = 100125116 # int | ID des Fahrradzählers
-    interval = 4 # int | Aggregationsintervall (6=Monate, 5=Wochen, 4=Tage, ...).
+    interval = 4 # int | Aggregationsintervall (6=Monate, 5=Wochen, 4=Tage, 3=Stunden, 2=Viertelstunden, 1=?).
     flow_ids = "101125116;102125116;353247560;353247561" # str | pratique-ID mit Semikolon getrennt
     fin = Date("26/05/2022") # Date | Spätestes interessierendes Datum (z.B. '26/05/2022'). (optional)
     debut = Date("26/04/2021") # Date | Frühestes interessierendes Datum (z.B. '01/01/2021'). (optional)
@@ -147,7 +147,7 @@ with EcoVisio.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_pdc** | **int**| ID des Fahrradzählers |
- **interval** | **int**| Aggregationsintervall (6&#x3D;Monate, 5&#x3D;Wochen, 4&#x3D;Tage, ...). |
+ **interval** | **int**| Aggregationsintervall (6&#x3D;Monate, 5&#x3D;Wochen, 4&#x3D;Tage, 3&#x3D;Stunden, 2&#x3D;Viertelstunden, 1&#x3D;?). |
  **flow_ids** | **str**| pratique-ID mit Semikolon getrennt |
  **id_organisme** | **int**| Träger ID | defaults to 4586
  **fin** | **Date**| Spätestes interessierendes Datum (z.B. &#39;26/05/2022&#39;). | [optional]
