@@ -56,14 +56,6 @@ Frühestes interessierendes Datum (z.B. "01/01/2021").
 "pratique" i.S.v. Beschränkung auf interessierende Zählerart (z.B. 1=Fußgänger, 2=Fahrräder, 4=Autos, oder 12=Sternchen).
 
 
-### Beispiel
-
-```bash
-counters=$(curl -m 60 https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/4586)
-```
-
-
-## Zählerdaten
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data/1
 
@@ -112,6 +104,7 @@ Frühestes interessierendes Datum (z.B. "01/01/2021").
 ### Beispiel
 
 ```bash
+counters=$(curl -m 60 https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/4586)
 data=$(curl -m 60 "https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data/100125116?idOrganisme=4586&idPdc=100125116&interval=4&flowIds=101125116%3B102125116%3B353247560%3B353247561")
 ```
 
