@@ -6,13 +6,13 @@ Eco-Counter ist ein Technologieunternehmen mit Hauptsitz in Lannion, in der Bret
 
 Generell findet man in Deutschland überwiegend Fahrradzähler. In Rostock gibt es daneben auch Fußgängerzähler (https://data.eco-counter.com/ParcPublic/?id=888), ebenso in Schwerin (https://data.eco-counter.com/ParcPublic/?id=6116), in Greifswald (https://data.eco-counter.com/ParcPublic/?id=6997) oder in Böblingen (https://data.eco-counter.com/ParcPublic/?id=6811). In Ludwigsburg gibt es sogar separat ausgewiesene Autozähler von Eco-Counter (https://data.eco-counter.com/ParcPublic/?id=6011).
 
-Eco-Visio ist ein Analysetool zur Auswertung der Daten. Auf dem Dashboard können die Zahlen unterschiedlicher Zähler eingesehen und verglichen werden. 
+Eco-Visio ist ein Analysetool zur Auswertung der Daten. Die Daten zahlreicher (aber nicht aller) Zähler sind öffentlich einsehbar (Option 'publicwebpage'), teilweise gruppiert nach Träger/Organisation/Domäne (Option 'publicwebpageplus').
 
 
 <img src="https://filer.eco-counter-tools.com/file/36/abbffb1981cff24c155d40cda72890efbd4b5dfeedf05131025d2ed36128a736/14404315699570.jpg" alt="Fahrradzzähler Nürnberg" style="width:200px;"/>
 
 
-## Zähler 
+## Publicwebpageplus 
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/{idOrganisme}
 
@@ -114,3 +114,81 @@ Frühestes interessierendes Datum (z.B. "01/01/2021").
 ```bash
 data=$(curl -m 60 "https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data/100125116?idOrganisme=4586&idPdc=100125116&interval=4&flowIds=101125116%3B102125116%3B353247560%3B353247561")
 ```
+
+
+## Publicwebpage 
+
+**URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/{idPdc}
+
+Metadaten zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085).
+
+
+**URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/data/{idPdc}
+
+Zählerdaten zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085).
+
+
+**Parameter:** *begin* 
+
+Frühestes interessierendes Datum (z.B. "20201001")
+
+
+**Parameter:** *end* 
+
+Spätestes interessierendes Datum (z.B. 20221027)
+
+
+**Parameter:** *step* 
+
+Interval (z.B. 4).
+
+
+**Parameter:** *domain*
+
+idOrganisme (z.B. 7242).
+
+
+**Parameter:** *withNull*
+
+Anzeige unspezifizierter Werte (z.B.true)
+
+
+**Parameter:** *t*
+
+Token (z.B. 81ee145d681ec7d08a28a037257117634ff718053a5e6f639948583cf3fb0f8b)
+
+
+**URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/stats/{idPdc}
+
+Statistiken zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085).
+
+
+**Parameter:** *begin* 
+
+Frühestes interessierendes Datum (z.B. "20201001")
+
+
+**Parameter:** *end* 
+
+Spätestes interessierendes Datum (z.B. 20221027)
+
+
+**Parameter:** *step* 
+
+Interval (z.B. 4).
+
+
+**Parameter:** *domain*
+
+idOrganisme (z.B. 7242).
+
+
+**Parameter:** *withNull*
+
+Anzeige unspezifizierter Werte (z.B.true)
+
+
+**Parameter:** *t*
+
+Token (z.B. 81ee145d681ec7d08a28a037257117634ff718053a5e6f639948583cf3fb0f8b)
+
