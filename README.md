@@ -116,6 +116,12 @@ data=$(curl -m 60 "https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage
 Metadaten zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085).
 
 
+**Parameter:** *withNull*
+
+Anzeige unspezifizierter Werte (z.B.true)
+
+
+
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/data/{idPdc}
 
 Zählerdaten zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085).
@@ -185,3 +191,13 @@ Anzeige unspezifizierter Werte (z.B.true)
 
 Token (z.B. 81ee145d681ec7d08a28a037257117634ff718053a5e6f639948583cf3fb0f8b)
 
+
+
+
+### Beispiel
+
+```bash
+counter=$(curl https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/100063085)
+data=$(curl https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/data/100063085?begin=20201001&end=20221027&step=4&domain=7242&withNull=true&t=81ee145d681ec7d08a28a037257117634ff718053a5e6f639948583cf3fb0f8b)
+stats=$(curl https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/stats/100063085?begin=1640991600000&end=1666821540000&domain=7242&t=81ee145d681ec7d08a28a037257117634ff718053a5e6f639948583cf3fb0f8b&siteId=100063085)
+```
