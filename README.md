@@ -83,7 +83,7 @@ ID des Zählers (z.B. 100125116)
 - 5
 - 6
 
-Aggregationsintervall (6=Monate, 5=Wochen, 4=Tage, 3=Stunden, 2=Viertelstunden, 1=?).
+Aggregationsintervall (6=Monate, 5=Wochen, 4=Tage, 3=Stunden, 2=Viertelstunden, 1=Viertelstunden?).
 
 
 **Parameter:** *flowIds* (mandatory)
@@ -93,12 +93,12 @@ pratique-ID, ggf. mehrere mit Semikolon getrennt' (z.B. 101125116;102125116;3532
 
 **Parameter:** *fin* (optional)
 
-Spätestes interessierendes Datum (z.B. "26/05/2022").
+Spätestes interessierendes Datum (z.B. 26/05/2022).
 
 
 **Parameter:** *debut* (optional)
 
-Frühestes interessierendes Datum (z.B. "01/01/2021").
+Frühestes interessierendes Datum (z.B. 01/01/2021).
 
 
 ### Beispiel
@@ -129,7 +129,7 @@ Zählerdaten zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085).
 
 **Parameter:** *begin* 
 
-Frühestes interessierendes Datum (z.B. "20201001")
+Frühestes interessierendes Datum (z.B. 20201001)
 
 
 **Parameter:** *end* 
