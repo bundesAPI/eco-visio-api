@@ -6,7 +6,9 @@ Eco-Counter ist ein Technologieunternehmen mit Hauptsitz in Lannion, in der Bret
 
 Generell findet man in Deutschland überwiegend Fahrradzähler. In Rostock gibt es daneben auch Fußgängerzähler (https://data.eco-counter.com/ParcPublic/?id=888), ebenso in Schwerin (https://data.eco-counter.com/ParcPublic/?id=6116), in Greifswald (https://data.eco-counter.com/ParcPublic/?id=6997) oder in Böblingen (https://data.eco-counter.com/ParcPublic/?id=6811). In Ludwigsburg gibt es sogar separat ausgewiesene Autozähler von Eco-Counter (https://data.eco-counter.com/ParcPublic/?id=6011).
 
-Eco-Visio ist ein Analysetool zur Auswertung der Daten. Die Daten zahlreicher (aber nicht aller) Zähler sind öffentlich einsehbar (Option 'publicwebpage'), teilweise gruppiert nach Träger/Organisation/Domäne (Option 'publicwebpageplus'). Der Zugriff auf nicht-öffentlich einsehbare Zähler erfolgt über die [Eco-Counter API](https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/openapi_Eco-Counter_v1.1.yaml) auf die auf [https://developers.eco-counter.com/](https://developers.eco-counter.com/) beschriebene Weise. 
+Eco-Visio ist ein Analysetool zur Auswertung der Daten. Die Daten zahlreicher (aber nicht aller) Zähler sind öffentlich einsehbar (Option 'publicwebpage'), teilweise gruppiert nach Träger/Organisation/Domäne (Option 'publicwebpageplus'). 
+
+Der Zugriff auf nicht-öffentlich einsehbare Zähler erfolgt über die [Eco-Counter API](https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/openapi_Eco-Counter_v1.1.yaml) auf die auf [https://developers.eco-counter.com/](https://developers.eco-counter.com/) beschriebene Weise (oder nach einem Login auf [https://www.eco-visio.net/v5/login/](https://www.eco-visio.net/v5/login/)). 
 
 
 <img src="https://filer.eco-counter-tools.com/file/36/abbffb1981cff24c155d40cda72890efbd4b5dfeedf05131025d2ed36128a736/14404315699570.jpg" alt="Fahrradzzähler Nürnberg" style="width:200px;"/>
