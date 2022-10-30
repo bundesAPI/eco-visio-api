@@ -6,7 +6,7 @@ Eco-Counter ist ein Technologieunternehmen mit Hauptsitz in Lannion, in der Bret
 
 Generell findet man in Deutschland überwiegend Fahrradzähler. In Rostock gibt es daneben auch Fußgängerzähler (https://data.eco-counter.com/ParcPublic/?id=888), ebenso in Schwerin (https://data.eco-counter.com/ParcPublic/?id=6116), in Greifswald (https://data.eco-counter.com/ParcPublic/?id=6997) oder in Böblingen (https://data.eco-counter.com/ParcPublic/?id=6811). In Ludwigsburg gibt es sogar separat ausgewiesene Autozähler von Eco-Counter (https://data.eco-counter.com/ParcPublic/?id=6011).
 
-Eco-Visio ist ein Analysetool zur Auswertung der Daten. Die Daten zahlreicher (aber nicht aller) Zähler sind öffentlich einsehbar (Option 'publicwebpage'), teilweise gruppiert nach Träger/Organisation/Domäne (Option 'publicwebpageplus').
+Eco-Visio ist ein Analysetool zur Auswertung der Daten. Die Daten zahlreicher (aber nicht aller) Zähler sind öffentlich einsehbar (Option 'publicwebpage'), teilweise gruppiert nach Träger/Organisation/Domäne (Option 'publicwebpageplus'). Der Zugriff auf nicht-öffentlich einsehbare Zähler erfolgt über die [Eco-Counter API](https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/openapi_Eco-Counter_v1.1.yaml) auf die auf [https://developers.eco-counter.com/](https://developers.eco-counter.com/) beschriebene Weise. 
 
 
 <img src="https://filer.eco-counter-tools.com/file/36/abbffb1981cff24c155d40cda72890efbd4b5dfeedf05131025d2ed36128a736/14404315699570.jpg" alt="Fahrradzzähler Nürnberg" style="width:200px;"/>
@@ -16,7 +16,7 @@ Eco-Visio ist ein Analysetool zur Auswertung der Daten. Die Daten zahlreicher (a
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/{idOrganisme}
 
-Alle Zähler eines Trägers mit ID *idOrganisme* (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters *idOrganisme* und deren Bedeutung gibt die Tabelle [hier](https://github.com/AndreasFischer1985/eco-visio-api/blob/main/eco-visio-api.csv) (Stand 07.09.2022).
+Alle Zähler eines Trägers mit ID *idOrganisme* (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters *idOrganisme* und deren Bedeutung gibt die Tabelle [hier](https://github.com/AndreasFischer1985/eco-visio-api/blob/main/eco-visio-api.csv) (Stand 27.10.2022).
 
 
 Einige *idOrganisme* sind deutschen Bundesländern und Städten zugeordnet:
@@ -124,7 +124,7 @@ Anzeige unspezifizierter Werte (z.B.true)
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/data/{idPdc}
 
-Zählerdaten zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085).
+Zählerdaten zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085). Eine Liste aller idPdc-Einträge (Stand: 27.10.2022) findet sich [hier](https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/idPdc_with_publicwebpage.txt).
 
 
 **Parameter:** *begin* 
@@ -159,7 +159,7 @@ Token (z.B. 81ee145d681ec7d08a28a037257117634ff718053a5e6f639948583cf3fb0f8b)
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/stats/{idPdc}
 
-Statistiken zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085).
+Statistiken zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085). Eine Liste aller idPdc-Einträge (Stand: 27.10.2022) findet sich [hier](https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/idPdc_with_publicwebpage.txt).
 
 
 **Parameter:** *begin* 
