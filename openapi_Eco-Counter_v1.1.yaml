@@ -1,0 +1,135 @@
+openapi: 3.0.1
+info:
+  title: API
+  description: Eco-Counter API
+  version: "1.1"
+servers:
+- url: https://apieco.eco-counter-tools.com/api/1.0
+- url: http://apieco.eco-counter-tools.com/api/1.0
+paths:
+  /data/site/{id}:
+    get:
+      summary: Get Site Data
+      parameters:
+      - name: id
+        in: path
+        description: Site ID
+        required: true
+        schema:
+          type: integer
+      - name: begin
+        in: query
+        description: 'Beginning of the period (ISO-8601 format: yyyy-mm-ddThh:mm:ss)
+          included'
+        schema:
+          type: string
+      - name: end
+        in: query
+        description: 'End of the period (ISO-8601 format: yyyy-mm-ddThh:mm:ss) excluded'
+        schema:
+          type: string
+      - name: step
+        in: query
+        description: 'Data step (allowed values: 15m/hour/day/week/month/year; default:hour)'
+        schema:
+          type: string
+      - name: complete
+        in: query
+        description: 'Complete data holes with null values (default: true)'
+        schema:
+          type: string
+      responses:
+        200:
+          description: "200"
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /tag:
+    get:
+      summary: Get a list of your Tags
+      parameters:
+      - name: domain_id
+        in: query
+        description: Restrict results to one domain (optional)
+        schema:
+          type: integer
+      responses:
+        200:
+          description: "200"
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /site/{id}:
+    get:
+      summary: Get a Site with a given ID
+      parameters:
+      - name: id
+        in: path
+        description: Site ID
+        required: true
+        schema:
+          type: string
+      - name: attributes
+        in: query
+        description: Add custom attributes to response
+        schema:
+          type: string
+      responses:
+        200:
+          description: "200"
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /counter:
+    get:
+      summary: Get a list of your Counters
+      responses:
+        200:
+          description: "200"
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /site:
+    get:
+      summary: Get a list of your Sites
+      parameters:
+      - name: domain_id
+        in: query
+        description: Restrict results to one domain (optional)
+        schema:
+          type: integer
+      - name: attributes
+        in: query
+        description: Add custom attributes to response
+        schema:
+          type: string
+      responses:
+        200:
+          description: "200"
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /counter/{serial}:
+    get:
+      summary: Get a Counter with a given Serial Number
+      parameters:
+      - name: serial
+        in: path
+        description: Counter Serial Number
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: "200"
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+components:
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://apieco.eco-counter-tools.com/authorize
+          scopes: {}
