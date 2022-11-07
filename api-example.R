@@ -150,7 +150,7 @@ if(T){ add feature to Polygon-element
 	library(dplyr)
 	germany$Freq=labels$Freq
 	gertab <- fortify(germany) 
-	gislayerdata <- mutate(as.data.frame(germany), id = rownames(data.frame(germany0)) ) 
+	gislayerdata <- mutate(as.data.frame(germany), id = rownames(data.frame(germany)) ) 
 	gertab <- inner_join(gertab, gislayerdata, "id")
 }
 dev.new();
