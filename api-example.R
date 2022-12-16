@@ -42,7 +42,7 @@ l=list()
 n=1
 write("Id-Collection",file="idCollection.txt",append=FALSE)
 for(i in plausibleValues) { 
-        if(i==1||i%%1000==0)print(paste0(i,"/",length(newIds)));
+        if(i==1||i%%1000==0)print(paste0(i,"/",length(plausibleValues)));
 	url=paste0("https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/",i,"?withNull=true")
         r=httr::GET(url,config=httr::config(connecttimeout=60))
   	if(length(unlist(httr::content(r)))>2){ 
