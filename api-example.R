@@ -129,6 +129,9 @@ g0=ggplot2::ggplot() +
 
 dev.new();g0;
 
+		
+if(!exists("germany"))
+	germany <- raster::getData(country = "Germany", level = 1) 
 dat=data.frame( #extract relevant data
 	dat[,c(3:4,2)],
 	ifelse(dat[,8]=="publicwebpageplus","publicwebpageplus","publicwebpage"),
