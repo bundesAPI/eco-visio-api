@@ -81,29 +81,30 @@ length(urlPages) #1718
 dirname=gsub("\\W","",Sys.Date())
 if(!file.exists(dirname))dir.create(dirname)
 setwd(dirname)
-res=lapply(1:length(urls), function(i){ # get results for each valid counter & save them locally
+	  res=lapply(1:length(urls), function(i){ # get results for each valid counter & save them locally
 	url=urls[i]
 	print(paste(i,"von",length(urls)))
 	r=httr::GET(url,config=httr::config(connecttimeout=60))	
 	httr::content(r)
- 	writeLines(
-		jsonlite::toJSON(
-			httr::content(r),
-			pretty=TRUE,
-			auto_unbox=TRUE),
+ 	writeLines(httr::content(r,as="text"),
 		paste0("erg",i,"_counter.json"))
 })
+
+
 res=sapply(list.files(pattern="_counter[.]json$"),function(file) # read json-files
-	rjson::fromJSON(paste0(readLines(file),collapse="\n")))
+	(paste0(readLines(file),collapse="\n")))
+res=sapply(res,function(x){if(x=="Not Found")return(NA); return(rjson::fromJSON(x));})
+res=res[!is.na(res)]
 res=t(sapply(res,function(id) # extract information from publicwebpage & publicwebpageplus
+        if(length(id)>4)
 	if(!is.list(id[[1]])){
 		 return(c(id$idPdc,id$titre,id$domaine,id$latitude,id$longitude,id$token,"publicwebpage"))
 	} else {
 		return(sapply(id, function(x)c(x$idPdc,x$nom,x$nomOrganisme,x$lat,x$lon,"","publicwebpageplus")))
 	}))
+
 dat=t(do.call(cbind,res)) # bind results to matrix
 head(dat)
-
 
 #------------------------------
 # Plot data on a map of Germany
