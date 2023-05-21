@@ -65,9 +65,9 @@ write.csv(x,paste0("eco-visio-api_data2_",Sys.Date(),".csv"),fileEncoding="UTF-8
 	  
 download.file("https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/eco-visio-api.csv",paste0(Sys.Date(),"_eco-visio-api.csv"))
 download.file("https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/idPdc_with_publicwebpage.txt",paste0(Sys.Date(),"_idPdc_with_publicwebpage.txt"))
-csv=read.csv(list.files(pattern="_eco-visio-api[.]csv")) # publicwebpageplus
+csv=read.csv(list.files(pattern="eco-visio-api[.]csv")) # publicwebpageplus
 org=names(table(csv[,"idOrganisme"])) # extract ids of organisations from publicwebpageplus-data
-ids=readLines(list.files(pattern="_idPdc_with_publicwebpage[.]txt")) #publicwebpage
+ids=readLines(list.files(pattern="idPdc_with_publicwebpage[.]txt")) #publicwebpage
 
 #---------------------------------
 # retrieve data from all known IDs
@@ -93,102 +93,26 @@ setwd(dirname)
 
 res=sapply(list.files(pattern="_counter[.]json$"),function(file) # read json-files
 	(paste0(readLines(file),collapse="\n")))
-res=sapply(res,function(x){if(x=="Not Found")return(NA); return(rjson::fromJSON(x));})
+sum(sapply(res,function(x)sum(grepl("Bad Request.",x))))
+sum(sapply(res,function(x)sum(grepl("Not Found",x))))
+res=sapply(res,function(x){if(x=="Not Found")return(NA); if(x=="Bad Request. Input number format")return(NA); return(jsonlite::fromJSON(x));})
 res=res[!is.na(res)]
+
 res=t(sapply(res,function(id) # extract information from publicwebpage & publicwebpageplus
         if(length(id)>4)
-	if(!is.list(id[[1]])){
-		 return(c(id$idPdc,id$titre,id$domaine,id$latitude,id$longitude,id$token,"publicwebpage"))
+	if(is.null(dim(id))){
+                 x=c(id$idPdc,id$titre,id$domaine,id$latitude,id$longitude,id$token,"publicwebpage")
+		 return(x)
 	} else {
-		return(sapply(id, function(x)c(x$idPdc,x$nom,x$nomOrganisme,x$lat,x$lon,"","publicwebpageplus")))
+                x=cbind(id$idPdc,id$nom,id$nomOrganisme,id$lat,id$lon,"","publicwebpageplus")
+		return(x)
 	}))
 
-dat=t(do.call(cbind,res)) # bind results to matrix
+dat=(do.call(rbind,res))
 head(dat)
+colnames(dat)=c("idPdc","nom","nomOrganisme/domain","lat","lon","token","type")
 
-#------------------------------
-# Plot data on a map of Germany
-#------------------------------
-
-library(ggplot2)
-library(raster)
-
-cc=geodata::country_codes()
-if(!exists("rasterDat"))
-  rasterDat=geodata::elevation_30s("DEU",getwd())
-terra::values(rasterDat)[terra::values(rasterDat)<0]=0
-g0=ggplot2::ggplot() +
-    tidyterra::geom_spatraster(data = rasterDat)+
-    tidyterra::scale_fill_hypso_tint_c(
-      limits = c(0,3000),
-      palette = "wiki-2.0_hypso" 
-    ) +
-    #ggplot2::labs(fill="Elevation")+
-    #ggplot2::ggtitle("Map of Germany") +
-    ggplot2::theme_minimal()
-
-dev.new();g0;
-
-		
-if(!exists("germany"))
-	germany <- raster::getData(country = "Germany", level = 1) 
-dat=data.frame( #extract relevant data
-	dat[,c(3:4,2)],
-	ifelse(dat[,8]=="publicwebpageplus","publicwebpageplus","publicwebpage"),
-	apply(dat[,c(5:6)],2,as.numeric))
-colnames(dat)=c("NOM","ORG","ID","TYP","LAT","LON") 
-
-udat=apply(dat[,c("LAT","LON")],1,function(x)paste(x,collapse=";"))
-udat=sort(table(udat))
-udat=data.frame(
-	LAT=as.numeric(gsub(";.*","",names(udat))),
-	LON=as.numeric(gsub(".*;","",names(udat))),
-        NUM=as.numeric(udat)
-)
-udat=udat[udat[,"LAT"]!=0&udat[,"LON"]!=0,]
-sp::coordinates(udat) <- ~LON+LAT
-sp::proj4string(udat) <- sp::proj4string(germany)
-udat=data.frame(udat,sp:::over(udat, germany , fn = NULL)) # locate udat-coordinates in Germany
-udat=udat[!is.na(udat[,"GID_0"]),] # remove udat-entries outside of Germany
-table(udat[,"GID_0"],useNA="always")
-
-germany$Freq=(table(udat[,"NAME_1"],useNA="always"))[germany$NAME_1]#
-germany$Freq[is.na(germany$Freq)]=0
-germany$Label=gsub("DE.","",germany$HASC_1)
-germany$LON=sp::coordinates(germany)[,1]
-germany$LAT=sp::coordinates(germany)[,2]
-w=which(germany$Label=="BR");germany$LAT[w]=germany$LAT[w]-0.4
-w=which(germany$Label=="HH"|germany$Label=="BE");germany$LAT[w]=germany$LAT[w]+0.2
-
-#invisible(lapply(1:16,function(i){germany@polygons[[i]]@"labpt"=c(germany$LON,germany$LON)}))
-
-g1=g0+
-  ggplot2::geom_polygon(data=germany, # borders of 16 countries
-               ggplot2::aes(x=long, y=lat, group=group),
-               fill=NA,
-	       colour=rgb(1,1,1,1))+
-  ggplot2::geom_point(data=udat, # white underground for udat-entries
-             ggplot2::aes(x=LON, y=LAT,size=NUM),  
-	     colour="white",
-             alpha=1)+
-  ggplot2::geom_point(data=udat, # darkblue udat-entries
-             ggplot2::aes(x=LON, y=LAT,size=NUM),  
-	     colour="darkblue",
-             alpha=.5)+
-  ggplot2::geom_text(data=(germany@data), # country-labels 
-	     ggplot2::aes(x=LON, y=LAT, label=Label),
-             alpha=.8, 
-	     size=3, 
-             fontface="bold",col="black")+
-  ggplot2::xlab("") + ggplot2::ylab("") +
-  ggplot2::guides(fill="none")+
-  ggplot2::labs(size="Ecocounter-IDs")+ 
-  ggplot2::ggtitle('Eco-Counter Stations in Germany',
-	subtitle =paste(sum(udat[,"NUM"]),"stations at",dim(udat),"locations"))
-
-dev.new();g1
-
-ggplot2::ggsave("EcocounterMapOfGermany.png")
+write.csv(dat,paste0("eco-visio-api_collection.csv"),fileEncoding="UTF-8")
 
 save.image(paste(Sys.Date(),"ecocounterExamples.RData"))
 				     
