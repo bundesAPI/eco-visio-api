@@ -18,8 +18,8 @@ Der Zugriff auf nicht-öffentlich einsehbare Zähler erfolgt über die [Eco-Coun
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/{idOrganisme}
 
-Alle Zähler eines Trägers mit ID *idOrganisme* (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters *idOrganisme* und deren Bedeutung gibt die Tabelle [hier](https://github.com/AndreasFischer1985/eco-visio-api/blob/main/eco-visio-api.csv) (Stand 27.10.2022).
-
+Alle Zähler eines Trägers mit ID *idOrganisme* (z.B. 4586, 20 oder 8080). Eine Übersicht über gültige Ausprägungen des Parameters *idOrganisme* und deren Bedeutung gibt die Tabelle [hier](https://github.com/AndreasFischer1985/eco-visio-api/blob/main/eco-visio-api.csv) (Stand: 18.05.2023).
+Neben Zählern, die im Rahmen einer Publicwebpageplus einer idOrganisme zugeordnet sind, gibt es weitere Zähler (siehe Publicwebpage, unten). Eine Sammlung aller aktuell bekannten Zähler findet sich in der Tabelle [hier](https://github.com/AndreasFischer1985/eco-visio-api/blob/main/eco-visio-api_collection.csv) 
 
 Einige *idOrganisme* sind deutschen Bundesländern und Städten zugeordnet:
 
@@ -126,7 +126,7 @@ Anzeige unspezifizierter Werte (z.B.true)
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/data/{idPdc}
 
-Zählerdaten zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085). Eine Liste aller idPdc-Einträge (Stand: 27.10.2022) findet sich [hier](https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/idPdc_with_publicwebpage.txt).
+Zählerdaten zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085). Eine Liste aller idPdc-Einträge (Stand: 21.05.2023) findet sich [hier](https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/idPdc_with_publicwebpage.txt).
 
 
 **Parameter:** *begin* 
@@ -161,7 +161,7 @@ Token (z.B. 81ee145d681ec7d08a28a037257117634ff718053a5e6f639948583cf3fb0f8b)
 
 **URL:** https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpage/stats/{idPdc}
 
-Statistiken zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085). Eine Liste aller idPdc-Einträge (Stand: 27.10.2022) findet sich [hier](https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/idPdc_with_publicwebpage.txt).
+Statistiken zu ausgewählten Zählern auf Basis der idPdc (z.B. 100063085). Eine Liste aller idPdc-Einträge (Stand: 21.05.2023) findet sich [hier](https://raw.githubusercontent.com/bundesAPI/eco-visio-api/main/idPdc_with_publicwebpage.txt).
 
 
 **Parameter:** *begin* 
