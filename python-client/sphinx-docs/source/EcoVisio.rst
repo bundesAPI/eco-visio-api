@@ -20,45 +20,45 @@ EcoVisio.api\_client module
 
 .. automodule:: EcoVisio.api_client
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 EcoVisio.configuration module
 -----------------------------
 
 .. automodule:: EcoVisio.configuration
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 EcoVisio.exceptions module
 --------------------------
 
 .. automodule:: EcoVisio.exceptions
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 EcoVisio.model\_utils module
 ----------------------------
 
 .. automodule:: EcoVisio.model_utils
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 EcoVisio.rest module
 --------------------
 
 .. automodule:: EcoVisio.rest
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: EcoVisio
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
